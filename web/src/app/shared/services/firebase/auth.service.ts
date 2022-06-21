@@ -49,8 +49,11 @@ export class AuthService implements OnInit {
 
   // sign in function
   SignIn(email:any, password:any) {
+    this.router.navigate(['/dashboard/dashboard01']);
+    debugger;
     return this.afAuth.signInWithEmailAndPassword(email, password)
       .then((result:any) => {
+        debugger;
         if (result.user.emailVerified !== true) {
           this.SetUserData(result.user);
           this.SendVerificationMail();
